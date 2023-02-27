@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To do list</title>
+</head>
+<div align="center">
+<body>
+    <h1>Welcome {{session["username"]}}</h1>
+    <h1>To Do List</h1><br><br>
+
+    <form action="/create" method="post">
+        <label for="task">Enter the task</label>
+        <input type="text" name="name">
+        <input type="submit" value="Create">
+    </form>
+
+    <table align="center">
+        {% for todo in todo_list %}
+
+        <tr>
+            <th colspan="2">To Do Item</th>
+            <th colspan="2">Status </th>
+        </tr>
+        <tr>
+            <td>{{ todo.name  }}</td>
+            <td>{{ todo.status }}</td>
+            {% if todo.complete == False %}
+            <td> Not complete</td>
+            {% else %}
+            <td> Complete</td>
+            {% endif %}
+            <td><a href="/update/{{todo.id}}">Update</a></td>
+            <td><a href="/delete/{{todo.id}}">Delete</a></td>
+        </tr>
+        {% endfor %}
+        </tbody><br><br>
+    </table>
+
+    <h2><a href="logout">Logout</a></h2>
+</div>
+</body>
+</html>
