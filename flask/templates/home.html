@@ -16,12 +16,12 @@
     </form>
 
     <table align="center">
-        {% for todo in todo_list %}
-
+        
         <tr>
             <th colspan="2">To Do Item</th>
             <th colspan="2">Status </th>
         </tr>
+        {% for todo in todo_list %}
         <tr>
             <td>{{ todo.name  }}</td>
             <td>{{ todo.status }}</td>
